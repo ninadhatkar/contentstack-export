@@ -10,11 +10,12 @@
   "license": "MIT",
   "dependencies": {
     "bluebird": "3.5.1",
+    "debug": "4.1.0",
     "lodash": "4.17.2",
     "mkdirp": "0.5.1",
     "request": "2.88.0",
     "winston": "2.2.0",
-    "debug": "4.1.0"
+    "yargs": "^15.1.0"
   },
   "main": "app.js",
   "maintainers": [
@@ -52,6 +53,9 @@
     "export-env": "node app.js environments",
     "export-extensions": "node app.js extensions",
     "export-webhooks": "node app.js webhooks"
+  },
+  "bin": {
+    "contentstack-export": "./bin/index.js"
   },
   "keywords": [
     "contentstack",
