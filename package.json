@@ -17,7 +17,6 @@
     "winston": "2.2.0",
     "yargs": "^15.1.0"
   },
-  "main": "app.js",
   "maintainers": [
     {
       "name": "rohitmishra",
@@ -52,7 +51,8 @@
     "export-globalfields": "node app.js global_fields",
     "export-env": "node app.js environments",
     "export-extensions": "node app.js extensions",
-    "export-webhooks": "node app.js webhooks"
+    "export-webhooks": "node app.js webhooks",
+    "test": "jest --colors --coverage --verbose"
   },
   "bin": {
     "contentstack-export": "./bin/index.js"

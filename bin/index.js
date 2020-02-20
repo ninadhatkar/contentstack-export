@@ -2,10 +2,11 @@
 /* eslint-disable no-console */
 
 var Bluebird = require('bluebird');
-var util = require('./lib/util');
-var login = require('./lib/util/login');
-var config = require('./config');
-var log = require('./lib/util/log');
+var util = require('../lib/util');
+var login = require('../lib/util/login');
+var config = require('../config');
+var log = require('../lib/util/log');
+const path = require('path');
 
 const argv = require('yargs')
   .option('module', {
@@ -25,6 +26,9 @@ const argv = require('yargs')
 
 console.log(argv.module)
 
+let configPath = path.parse(argv.config)
+config = require(configPath);
+
 config = util.buildAppConfig(config)
 util.validateConfig(config)
 
@@ -38,7 +42,7 @@ login(config).then(function () {
   var types = config.modules.types;
   
   if (argv.module !== 'all') {
-    var val = process.argv[2];
+    var val = argv.module;
     
     var exportedModule = require('./lib/export/' + val);
       

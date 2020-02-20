@@ -1,16 +1,11 @@
 var Bluebird = require('bluebird');
-var util = require('./lib/util');
 var login = require('./lib/util/login');
-var config = require('./config');
 var log = require('./lib/util/log');
+var util = require('./lib/util');
 
-config = util.buildAppConfig(config)
-util.validateConfig(config)
+util.setConfig();
 
-exports.getConfig = function () {
-  return config;
-};
-
+const config = util.getConfig();
 
 login(config).then(function () {
   var types = config.modules.types;
